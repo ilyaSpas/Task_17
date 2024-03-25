@@ -2,6 +2,7 @@ package org.example.transactional.controller;
 
 import org.example.transactional.entity.Customer;
 import org.example.transactional.entity.Order;
+import org.example.transactional.entity.Product;
 import org.example.transactional.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,12 @@ public class OrderController {
     @PostMapping("/new")
     public ResponseEntity<Order> saveOrder(@RequestBody Order order){
         return new ResponseEntity<>(orderService.save(order), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/{customer_id}/new")
+    public ResponseEntity<Order> placeOrder(@PathVariable("customer_id") Long customer_id,
+                                            @RequestBody List<Product> products) {
+        return new ResponseEntity<>(orderService.placeOrder(customer_id, products), HttpStatus.CREATED);
     }
 
     @GetMapping
