@@ -7,7 +7,7 @@ import org.example.transactional.exception.ProductOutOfStockException;
 import org.example.transactional.exception.ThereAreNotEnoughFundsException;
 import org.example.transactional.service.CustomerService;
 import org.example.transactional.service.OrderService;
-import org.example.transactional.service.PlaceOrder;
+import org.example.transactional.service.PlaceOrderService;
 import org.example.transactional.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class PlaceOrderServiceImp implements PlaceOrder {
+public class PlaceOrderServiceServiceImp implements PlaceOrderService {
 
     private final CustomerService customerService;
 
@@ -26,7 +26,7 @@ public class PlaceOrderServiceImp implements PlaceOrder {
     private final ProductService productService;
 
     @Autowired
-    public PlaceOrderServiceImp(CustomerService customerService, OrderService orderService, ProductService productService) {
+    public PlaceOrderServiceServiceImp(CustomerService customerService, OrderService orderService, ProductService productService) {
         this.customerService = customerService;
         this.orderService = orderService;
         this.productService = productService;
