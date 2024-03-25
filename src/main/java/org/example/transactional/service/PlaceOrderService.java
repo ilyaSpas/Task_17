@@ -3,5 +3,5 @@ package org.example.transactional.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface PlaceOrder {
+public interface PlaceOrderService {
 }
